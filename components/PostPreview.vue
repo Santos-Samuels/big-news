@@ -3,20 +3,20 @@
         <article class="grid grid-cols-1 lg:grid-cols-2">
             <div class="flex flex-row flex-nowrap">
                 <div class="article-date mr-4">
-                    <p class="text-lg">{{ post.publication_date.toLocaleString('pt-br', { month: 'short' }).slice(0, -1) }}</p>
+                    <p class="text-lg"> {{ postUpdateDate.toLocaleString('pt-br', { month: 'short' }).slice(0, -1) }} </p>
                     <hr class="w-4 my-2 border-black border-opacity-25">
-                    <span class="font-semibold text-3xl"> {{ post.publication_date.getDate() }}</span>
+                    <span class="font-semibold text-3xl"> {{ postUpdateDate.getDate() }} </span>
                 </div>
 
                 <div class="w-full lg:mr-4 ">
-                    <img class="article-thumbnail w-full h-56 object-cover" :src="post.thumbnail" alt="Post Image">
+                    <img class="article-thumbnail w-full h-56 object-cover" :src="post.image" alt="Post Image">
                 </div>
             </div>
 
-            <div class="article-info flex flex-col justify-between w-full mt-3">
+            <div class="article-info flex flex-col justify-between w-full mt-3 lg:mt-0">
                 <div>
-                    <nuxt-link tag="a" to="#" class="article-title font-semibold text-2xl">{{ post.title }}</nuxt-link>
-                    <p class="article-description mt-3">{{ post.description }}</p>
+                    <nuxt-link tag="a" :to="'/post/' + post.id" class="article-title font-semibold text-2xl"> {{ post.title }} </nuxt-link>
+                    <p class="article-description mt-3"> {{ post.description }} </p>
                 </div>
 
                 <div>
@@ -34,7 +34,8 @@
 <script>
 export default {
     props: { 
-        post: { type: Object, required: true}
+        post: { type: Object, required: true},
+        postUpdateDate: { type: Date, required: true }
     }
 }
 </script>
