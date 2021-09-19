@@ -3,9 +3,9 @@
         <article class="grid grid-cols-1 lg:grid-cols-2">
             <div class="flex flex-row flex-nowrap">
                 <div class="article-date mr-4">
-                    <p class="text-lg"> {{ postUpdateDate.toLocaleString('pt-br', { month: 'short' }).slice(0, -1) }} </p>
+                    <p class="text-lg"> {{ new Date(post.updatedAt).toLocaleString('pt-br', { month: 'short' }).slice(0, -1) }} </p>
                     <hr class="w-4 my-2 border-black border-opacity-25">
-                    <span class="font-semibold text-3xl"> {{ postUpdateDate.getDate() }} </span>
+                    <span class="font-semibold text-3xl"> {{ new Date(post.updatedAt).getDate() }} </span>
                 </div>
 
                 <div class="w-full lg:mr-4 ">
@@ -34,8 +34,8 @@
 <script>
 export default {
     props: { 
-        post: { type: Object, required: true},
-        postUpdateDate: { type: Date, required: true }
+        post: { type: Object, required: true}
+
     }
 }
 </script>
