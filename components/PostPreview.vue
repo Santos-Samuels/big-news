@@ -21,7 +21,7 @@
 
                 <div>
                     <hr class="my-3 border-black border-opacity-25">
-                    <nuxt-link tag="a" to="#" class="flex justify-end items-center flex-nowrap">
+                    <nuxt-link tag="a" :to="'/post/' + post.id" class="flex justify-end items-center flex-nowrap">
                         <span class="font-semibold mr-1">Leia mais</span>
                         <i class="bi bi-chevron-right text-sm"></i>
                     </nuxt-link>
